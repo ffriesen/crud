@@ -1,0 +1,23 @@
+<ol class="breadcrumb" >
+	<li> <input type="text" placeholder="Search..." class="form-control input-sm" ng-model="customerFilter" /> </li>
+	<li class="pull-right"> <a href="#/new_customer"> <span class="glyphicon glyphicon-plus-sign"></span> New Customer </a> </li>
+</ol>
+	<hr/>
+
+
+	<table class="table table-striped">
+		<tr>
+			<th> Name <a href="" ng-click="sortField='customer_name'; reverse = !reverse">  <span class="glyphicon glyphicon-sort"></span>  </a> </th>
+			<th> Country <a href="" ng-click="sortField='customer_country'; reverse = !reverse">  <span class="glyphicon glyphicon-sort"></span> </a> </th>
+			<th> Primary Phone </th>
+			<th> Email </th> 
+			<th>  </th> 
+		</tr>
+		<tr ng-repeat="customer in customerList | filter:customerFilter | orderBy:sortField:reverse">
+			<td> <a href="#/customer/{{customer.customer_id}}"> {{customer.customer_name}} </a></td>
+			<td> {{customer.customer_country}} </td>
+			<td> {{customer.customer_phone}} </td>
+			<td> <a href="mailto:{{customer.customer_email}}"> {{customer.customer_email}} </a></td>
+			<td> <a href="#/customer/edit/{{customer.customer_id}}" class="btn-default btn btn-xs"> <span class="glyphicon glyphicon-edit"> </span> </a></td>
+		</tr>
+	</table>

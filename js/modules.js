@@ -1,0 +1,1 @@
+var customerCrud = angular.module('customerCrud', ['ngRoute']);

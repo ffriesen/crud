@@ -1,0 +1,29 @@
+<ol class="breadcrumb" >
+	<li> <a href="#/"> <span class="glyphicon glyphicon-arrow-left"></span> Back </a> </li>
+	<li class="pull-right"> <a href="#/new_customer"> <span class="glyphicon glyphicon-plus-sign"></span> New Customer </a> </li>
+	<li> <a href="#/customer/edit/{{customer.customer_id}}"> <span class="glyphicon glyphicon-edit"></span> Edit Customer </a> </li>
+</ol>
+	<hr/>
+
+<h3> {{customer.customer_name}}  </h3>
+<address> 
+	<span ng-if="customer.customer_address != NULL"> {{customer.customer_address}}, <br /> </span> 
+	<span ng-if="customer.customer_address_2 != NULL"> {{customer.customer_address_2}}, <br /> </span> 
+	<span ng-if="customer.customer_city != NULL"> {{customer.customer_city}}, <br /> </span> 
+	<span ng-if="customer.customer_state != NULL"> {{customer.customer_state}}, <br /> </span> 
+	<span ng-if="customer.customer_postal_code != NULL"> {{customer.customer_postal_code}}, <br /> </span> 
+	<span ng-if="customer.customer_country != NULL"> <strong> {{customer.customer_country}} </strong> <br /> </span> 
+
+	<hr/>
+
+	<span ng-if="customer.customer_phone != NULL"> <abbr title="Phone">P:</abbr> {{customer.customer_phone}} <br /> </span>
+	<span ng-if="customer.customer_fax != NULL"> <abbr title="Fax">F:</abbr> {{customer.customer_fax}} <br /> </span>
+	<span ng-if="customer.customer_email != NULL"> <abbr title="Email">E:</abbr> <a href="mailto:{{customer.customer_email}}"> {{customer.customer_email}} </a> <br /> </span>
+	<span ng-if="customer.customer_memo != NULL"> <abbr title="Memo">Memo:</abbr> {{customer.customer_memo}} <br /> </span>
+</address>
+
+<hr/>
+<div class="">
+	<span> <i> created: {{customer.created_at | date}} </i> </span>
+	<span ng-if="customer.customer_updated_at != NULL"> <i> | last updated: {{customer.updated_at | date}} </i></span>
+</div>
